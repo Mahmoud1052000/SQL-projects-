@@ -13,7 +13,7 @@ from raw_sales;
 
 -- HOUSE PROPERTY SALES ANALYSIS QUESTIONS
 
-(( Which date corresponds to the highest number of sales? ))
+--(( Which date corresponds to the highest number of sales? ))
 
 select datesold as date, count(price) as highest_sales
 from raw_sales
