@@ -1,6 +1,4 @@
-
--- Taking a look at the dataset
-
+cheking dataset
 select * from raw_sales;
 
 -- Checking for inappropriate values in the propertytype column
