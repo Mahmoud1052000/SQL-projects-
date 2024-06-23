@@ -1,9 +1,7 @@
-
--- Taking a look at the dataset
-
+EDA 
 select * from raw_sales;
 
--- Checking for inappropriate values in the propertytype column
+-- Checking ( inappropriate values in the propertytype column)
 
 select distinct propertytype
 from raw_sales;
@@ -15,7 +13,7 @@ from raw_sales;
 
 -- HOUSE PROPERTY SALES ANALYSIS QUESTIONS
 
--- Which date corresponds to the highest number of sales?
+(( Which date corresponds to the highest number of sales? ))
 
 select datesold as date, count(price) as highest_sales
 from raw_sales
