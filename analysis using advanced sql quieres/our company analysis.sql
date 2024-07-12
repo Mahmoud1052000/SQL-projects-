@@ -1,4 +1,3 @@
-/************ Basic Statistics with SQL ************/
 
 SELECT * FROM company_divisions
 LIMIT 5;
