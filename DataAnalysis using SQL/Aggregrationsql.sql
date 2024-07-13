@@ -1,4 +1,3 @@
-/********** Filterig, Join and Aggregration ************/
 
 /* we want to know person's salary comparing to his/her department average salary */
 SELECT
@@ -123,11 +122,8 @@ GROUP BY 1,2
 ORDER BY 1,2;
 
 
-/***** Grouping Sets *****************/
--- Grouping Sets : allows to have more than one grouping in the results table
--- there is no need to seperately use group by per query statement
 
--- 2 groupings
+--  groupings
 SELECT company_regions, company_division, COUNT(*) AS total_employees
 FROM vw_staff_div_reg
 GROUP BY 
@@ -135,7 +131,7 @@ GROUP BY
 ORDER BY 1,2;
 
 
--- 3 groupings
+--  groupings
 SELECT company_regions, company_division, gender, COUNT(*) AS total_employees
 FROM vw_staff_div_reg
 GROUP BY 
@@ -158,12 +154,9 @@ GROUP BY
 	company_regions, country
 ORDER BY country, company_regions;
 
--------------- ROLL UP & CUBE to create Sub Totals ----------------------------------------
--- both are sub clauses of Group by
 
 
 -------------- ROLL UP ----------------
--- is used to generate sub totals and grand totals
 
 /* number of employees per regions & country, Then sub totals per Country, Then toal for whole table*/
 SELECT country,company_regions, COUNT(*) AS total_employees
@@ -183,29 +176,6 @@ ORDER BY company_division, company_regions;
 
 -------------------------------------------------------------------------------
 
-/* Difference between Roll Up and Cube 
-
-Reference: https://www.postgresqltutorial.com/postgresql-rollup/
-
-For example, the CUBE (c1,c2,c3) makes all eight possible grouping sets:
-(c1, c2, c3)
-(c1, c2)
-(c2, c3)
-(c1,c3)
-(c1)
-(c2)
-(c3)
-()
-
-
-However, the ROLLUP(c1,c2,c3) generates only four grouping sets, assuming the hierarchy c1 > c2 > c3 as follows:
-
-(c1, c2, c3)
-(c1, c2)
-(c1)
-()
-
-*/
 
 SELECT company_division, company_regions, country, COUNT(*) AS total_employees
 FROM vw_staff_div_reg_country
@@ -223,15 +193,7 @@ ORDER BY company_division, company_regions, country;
 
 -------------------------------------------------------------------------------
 
------------- FETCH FIRST ----------
-/* 
-Fetch First works different from Limit.
 
-For Fetch First, Order By Clause works first for sorting. Then Fetch First selets the rows.
-
-For Limit, Limit acutally limits the rows and then performs the operations.
-
-*/
 
 
 /* What are the top salary earners ? */
